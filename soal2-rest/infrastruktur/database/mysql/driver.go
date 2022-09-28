@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"weddingguest_app/config"
+	noteData "weddingguest_app/feature/note/data"
 	userData "weddingguest_app/feature/user/data"
 
 	"gorm.io/driver/mysql"
@@ -21,5 +22,5 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 }
 
 func MigrateData(db *gorm.DB) {
-	db.AutoMigrate(userData.User{})
+	db.AutoMigrate(userData.User{}, noteData.Note{})
 }
